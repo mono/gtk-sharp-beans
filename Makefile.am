@@ -1,6 +1,7 @@
 UNSAFE = -unsafe
 DEBUG = -debug
 
+
 GTK_SRCS =					\
 	$(srcdir)/Gtk.Sources/Dialog.cs		\
 	$(srcdir)/Gtk.Sources/Widget.cs
@@ -12,6 +13,11 @@ GLIB_SRCS =					\
 	$(srcdir)/GLib.Sources/Priority.cs	\
 	$(srcdir)/GLib.Sources/Sources.cs	\
 	$(srcdir)/GLib.Sources/Timeout.cs
+
+SRCS =						\
+	$(srcdir)/AssemblyInfo.cs		\
+	$(GLIB_SRCS)				\
+	$(GTK_SRCS)
 
 ASSEMBLIES =					\
 	-pkg:glib-sharp-2.0			\
@@ -29,9 +35,13 @@ gtk_generated/Builder.cs: gtk-api.xml $(GTK_CUSTOMS)
 	@echo -e "\n*** Generating C# code"
 	gapi2-codegen $(GLIBSHARP_CFLAGS) --outdir=gtk_generated --customdir=$(srcdir) --generate gtk-api.xml
 
-gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(GTK_SRCS) $(GLIB_SRCS)
+gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
 	@echo -e "\n*** Building $@"
-	$(CSC) -target:library -out:$@ $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(GTK_SRCS) $(GLIB_SRCS) $(srcdir)/gtk_generated/*.cs
+	$(CSC) -target:library -out:$@ $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(SRCS) $(srcdir)/gtk_generated/*.cs
+
+install: gtk-sharp-beans.dll
+	@echo -e "\n*** Installing $< into the GAC"
+	gacutil -i $<
 
 CLEANFILES = 			\
 	gtk-sharp-beans.dll 	\
@@ -39,7 +49,6 @@ CLEANFILES = 			\
 	gtk-api.xml
 
 EXTRA_DIST =			\
-	$(GTK_SRCS)		\
+	$(SRCS)			\
 	$(GTK_CUSTOMS)		\
-	$(GLIB_SRCS)		\
 	gtk-api.raw

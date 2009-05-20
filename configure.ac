@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT(gtk-sharp-beans, 2.13.90, stephane@delcroix.org)
 AC_CONFIG_AUX_DIR(config)
-AC_CONFIG_SRCDIR(Builder.custom)
+AC_CONFIG_SRCDIR(AssemblyInfo.cs)
 
 AM_INIT_AUTOMAKE
 
