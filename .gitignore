@@ -1,0 +1,12 @@
+*~
+*.mdb
+*.dll
+/INSTALL
+/config
+Makefile
+Makefile.in
+/aclocal.m4
+/config.log
+/config.status
+/configure
+/autom4te.cache
