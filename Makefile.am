@@ -6,7 +6,9 @@ GTK_SRCS =
 GTK_CUSTOMS =					\
 	$(srcdir)/Gtk.Customs/Builder.custom
 
-GLIB_SRCS =
+GLIB_SRCS =					\
+	$(srcdir)/GLib.Sources/Priority.cs	\
+	$(srcdir)/GLib.Sources/Sources.cs
 
 ASSEMBLIES =					\
 	-pkg:glib-sharp-2.0
@@ -27,4 +29,13 @@ gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
 	@echo -e "\n*** Building $@"
 	$(CSC) -target:library -out:$@ $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(GTK_SRCS) $(GLIB_SRCS) $(srcdir)/gtk_generated/*.cs
 
+CLEANFILES = 			\
+	gtk-sharp-beans.dll 	\
+	gtk-sharp-beans.dll.mdb \
+	gtk-api.xml
 
+EXTRA_DIST =			\
+	$(GTK_SRCS)		\
+	$(GTK_CUSTOMS)		\
+	$(GLIB_SRCS)		\
+	gtk-api.raw
