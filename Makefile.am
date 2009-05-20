@@ -2,7 +2,8 @@ UNSAFE = -unsafe
 DEBUG = -debug
 
 GTK_SRCS =					\
-	$(srcdir)/Gtk.Sources/Dialog.cs
+	$(srcdir)/Gtk.Sources/Dialog.cs		\
+	$(srcdir)/Gtk.Sources/Widget.cs
 
 GTK_CUSTOMS =					\
 	$(srcdir)/Gtk.Customs/Builder.custom
