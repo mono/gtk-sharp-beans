@@ -10,3 +10,5 @@ Makefile.in
 /config.status
 /configure
 /autom4te.cache
+/gtk_generated
+/gtk-api.xml
