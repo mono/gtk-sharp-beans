@@ -1,7 +1,8 @@
 UNSAFE = -unsafe
 DEBUG = -debug
 
-GTK_SRCS =
+GTK_SRCS =					\
+	$(srcdir)/Gtk.Sources/Dialog.cs
 
 GTK_CUSTOMS =					\
 	$(srcdir)/Gtk.Customs/Builder.custom
@@ -12,7 +13,8 @@ GLIB_SRCS =					\
 	$(srcdir)/GLib.Sources/Timeout.cs
 
 ASSEMBLIES =					\
-	-pkg:glib-sharp-2.0
+	-pkg:glib-sharp-2.0			\
+	-pkg:gtk-sharp-2.0
 
 all: gtk-sharp-beans.dll
 
@@ -26,7 +28,7 @@ gtk_generated/Builder.cs: gtk-api.xml $(GTK_CUSTOMS)
 	@echo -e "\n*** Generating C# code"
 	gapi2-codegen $(GLIBSHARP_CFLAGS) --outdir=gtk_generated --customdir=$(srcdir) --generate gtk-api.xml
 
-gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
+gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(GTK_SRCS) $(GLIB_SRCS)
 	@echo -e "\n*** Building $@"
 	$(CSC) -target:library -out:$@ $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(GTK_SRCS) $(GLIB_SRCS) $(srcdir)/gtk_generated/*.cs
 
