@@ -8,7 +8,8 @@ GTK_CUSTOMS =					\
 
 GLIB_SRCS =					\
 	$(srcdir)/GLib.Sources/Priority.cs	\
-	$(srcdir)/GLib.Sources/Sources.cs
+	$(srcdir)/GLib.Sources/Sources.cs	\
+	$(srcdir)/GLib.Sources/Timeout.cs
 
 ASSEMBLIES =					\
 	-pkg:glib-sharp-2.0
