@@ -4,6 +4,7 @@ DEBUG = -debug
 
 GTK_SRCS =					\
 	$(srcdir)/Gtk.Sources/Dialog.cs		\
+	$(srcdir)/Gtk.Sources/Image.cs		\
 	$(srcdir)/Gtk.Sources/Widget.cs
 
 GTK_CUSTOMS =					\
@@ -21,6 +22,7 @@ SRCS =						\
 
 ASSEMBLIES =					\
 	-pkg:glib-sharp-2.0			\
+	-pkg:gio-sharp-2.0			\
 	-pkg:gtk-sharp-2.0
 
 all: gtk-sharp-beans.dll

@@ -21,6 +21,7 @@ AC_SUBST(GACUTIL_FLAGS)
 
 PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 >= 2.12)
 PKG_CHECK_MODULES(GLIBSHARP, glib-sharp-2.0 >= 2.12)
+PKG_CHECK_MODULES(GIOSHARP, gio-sharp-2.0 >= 2.13.92)
 PKG_CHECK_MODULES(GAPI, gapi-2.0 >= 2.12.0)
 
 if test `uname -s` = "Darwin"; then
