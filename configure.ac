@@ -37,5 +37,6 @@ AC_SUBST(LIB_SUFFIX)
 AC_OUTPUT(
 Makefile 
 gtk-sharp-beans-2.0.pc
+gtk-sharp-beans.dll.config
 sources/Makefile
 )
