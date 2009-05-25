@@ -11,6 +11,7 @@ GTK_CUSTOMS =					\
 	$(srcdir)/Gtk.Customs/Builder.custom
 
 GLIB_SRCS =					\
+	$(srcdir)/GLib.Sources/Format.cs	\
 	$(srcdir)/GLib.Sources/Priority.cs	\
 	$(srcdir)/GLib.Sources/Sources.cs	\
 	$(srcdir)/GLib.Sources/Timeout.cs
