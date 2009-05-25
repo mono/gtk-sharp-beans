@@ -39,9 +39,20 @@ gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
 	@echo -e "\n*** Building $@"
 	$(CSC) -target:library -out:$@ $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(SRCS) $(srcdir)/gtk_generated/*.cs
 
-install: gtk-sharp-beans.dll
+install-data-local: gtk-sharp-beans.dll
 	@echo -e "\n*** Installing $< into the GAC"
-	gacutil -i $<
+	@echo "$(GACUTIL) /i $< /f $(GACUTIL_FLAGS)"
+	@$(GACUTIL) /i $< /f $(GACUTIL_FLAGS) || exit 1;
+	@echo
+
+uninstall-local:
+	@echo -e "\n*** Un-installing gio-sharp.dll from the GAC"
+	@echo "$(GACUTIL) /u gtk-sharp-beans $(GACUTIL_FLAGS)"
+	@$(GACUTIL) /u gtk-sharp-beans $(GACUTIL_FLAGS) || exit 1;
+	@echo
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = gtk-sharp-beans-2.0.pc
 
 CLEANFILES = 			\
 	gtk-sharp-beans.dll 	\
