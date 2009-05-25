@@ -1,7 +1,7 @@
 <gapi-parser-input>
   <api filename="../gtk-api.raw">
     <library name="libgtk-win32-2.0-0.dll">
-      <namespace name="Gtk">
+      <namespace name="GtkBeans">
         <file>gtk+-2.14.7/gtk/gtkbuilder.h</file>
         <file>gtk+-2.14.7/gtk/gtkbuilder.c</file>
       </namespace>

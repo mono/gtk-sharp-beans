@@ -6,8 +6,8 @@
         Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
 
 -->
-  <namespace name="Gtk" library="libgtk-win32-2.0-0.dll">
-    <enum name="BuilderError" cname="GtkBuilderError" type="enum">
+  <namespace name="GtkBeans" library="libgtk-win32-2.0-0.dll">
+    <enum name="GtkBuilderError" cname="GtkBuilderError" type="enum">
       <member cname="GTK_BUILDER_ERROR_INVALID_TYPE_FUNCTION" name="InvalidTypeFunction" />
       <member cname="GTK_BUILDER_ERROR_UNHANDLED_TAG" name="UnhandledTag" />
       <member cname="GTK_BUILDER_ERROR_MISSING_ATTRIBUTE" name="MissingAttribute" />
@@ -17,7 +17,7 @@
       <member cname="GTK_BUILDER_ERROR_INVALID_VALUE" name="InvalidValue" />
       <member cname="GTK_BUILDER_ERROR_VERSION_MISMATCH" name="VersionMismatch" />
     </enum>
-    <callback name="BuilderConnectFunc" cname="GtkBuilderConnectFunc">
+    <callback name="GtkBuilderConnectFunc" cname="GtkBuilderConnectFunc">
       <return-type type="void" />
       <parameters>
         <parameter type="GtkBuilder*" name="builder" />
@@ -29,7 +29,7 @@
         <parameter type="gpointer" name="user_data" />
       </parameters>
     </callback>
-    <object name="Builder" cname="GtkBuilder" parent="GObject">
+    <object name="GtkBuilder" cname="GtkBuilder" parent="GObject">
       <field name="GSEAL" cname="GSEAL (priv)" type="GtkBuilderPrivate*" />
       <property name="TranslationDomain" cname="translation-domain" type="gchar*" readable="true" writeable="true" />
       <virtual_method name="GetTypeFromName" cname="get_type_from_name">
