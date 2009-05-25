@@ -21,16 +21,17 @@
 
 using System;
 using System.Runtime.InteropServices;
+using GLib;
 
-namespace GLib {
-	static class SourceExtensions {
+namespace GLibBeans {
+	public class Sources {
 		[DllImport("libglib-2.0-0.dll")]
 		static extern void g_source_set_priority (IntPtr source, int priority);
 
 		[DllImport("libglib-2.0-0.dll")]
 		static extern IntPtr g_main_context_find_source_by_id (IntPtr context, uint source_id);
 
-		public static void SetPriority (this Source source, uint source_id, Priority priority)
+		public static void SetPriority (uint source_id, Priority priority)
 		{
 			g_source_set_priority (g_main_context_find_source_by_id (IntPtr.Zero, source_id), (int)priority);
 		}
