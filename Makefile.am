@@ -16,10 +16,14 @@ GLIB_SRCS =					\
 	$(srcdir)/GLib.Sources/Sources.cs	\
 	$(srcdir)/GLib.Sources/Timeout.cs
 
+GDK_SRCS =					\
+	$(srcdir)/Gdk.Sources/PixbufFormat.cs
+
 SRCS =						\
 	$(srcdir)/AssemblyInfo.cs		\
 	$(GLIB_SRCS)				\
-	$(GTK_SRCS)
+	$(GTK_SRCS)				\
+	$(GDK_SRCS)
 
 ASSEMBLIES =					\
 	-pkg:glib-sharp-2.0			\
