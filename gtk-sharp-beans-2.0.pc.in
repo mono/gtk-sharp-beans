@@ -8,6 +8,6 @@ Name: Gtk#Beans
 Description: Gtk#Beans - Blings and API missing from Gtk#
 Version: @VERSION@
 Cflags: -I:${gapidir}/gio-api.xml
-Libs: -r:${assemblies_dir}/gio-sharp.dll
+Libs: -r:${assemblies_dir}/gtk-sharp-beans.dll
 Requires: glib-sharp-2.0 gtk-sharp-2.0
 
