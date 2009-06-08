@@ -17,7 +17,8 @@ GLIB_SRCS =					\
 	$(srcdir)/GLib.Sources/Timeout.cs
 
 GDK_SRCS =					\
-	$(srcdir)/Gdk.Sources/PixbufFormat.cs
+	$(srcdir)/Gdk.Sources/PixbufFormat.cs	\
+	$(srcdir)/Gdk.Sources/Drawable.cs
 
 SRCS =						\
 	$(srcdir)/AssemblyInfo.cs		\
