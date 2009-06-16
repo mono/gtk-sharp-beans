@@ -4,6 +4,7 @@ DEBUG = -debug
 
 GTK_SRCS =					\
 	$(srcdir)/Gtk.Sources/Dialog.cs		\
+	$(srcdir)/Gtk.Sources/Global.cs		\
 	$(srcdir)/Gtk.Sources/Image.cs		\
 	$(srcdir)/Gtk.Sources/Widget.cs
 
