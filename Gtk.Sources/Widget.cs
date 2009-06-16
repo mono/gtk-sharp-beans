@@ -36,14 +36,5 @@ namespace Gtk {
 			Marshal.FreeHGlobal (native_clip_rect);
 			return ret;
 		}
-
-		[DllImport("libgtk-win32-2.0-0.dll")]
-		static extern IntPtr gtk_widget_get_window(IntPtr raw);
-
-		public static Gdk.Window GetWindow(this Widget widget) {
-			IntPtr raw_ret = gtk_widget_get_window(widget.Handle);
-			Gdk.Window ret = GLib.Object.GetObject(raw_ret) as Gdk.Window;  
-			return ret;
-		}
 	}
 }
