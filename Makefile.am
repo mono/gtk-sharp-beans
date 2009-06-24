@@ -19,6 +19,7 @@ GLIB_SRCS =					\
 
 GDK_SRCS =					\
 	$(srcdir)/Gdk.Sources/PixbufFormat.cs	\
+	$(srcdir)/Gdk.Sources/PixbufLoader.cs	\
 	$(srcdir)/Gdk.Sources/Drawable.cs
 
 SRCS =						\
