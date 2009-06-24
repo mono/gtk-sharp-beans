@@ -28,7 +28,7 @@ namespace Gdk {
 		[DllImport("libgdk_pixbuf-2.0-0.dll")]
 		static extern unsafe bool gdk_pixbuf_loader_close(IntPtr raw, out IntPtr error);
 
-		public unsafe bool Close(this PixbufLoader loader, bool force) {
+		public static unsafe bool Close(this PixbufLoader loader, bool force) {
 			IntPtr error = IntPtr.Zero;
 			bool raw_ret = gdk_pixbuf_loader_close(loader.Handle, out error);
 			bool ret = raw_ret;
