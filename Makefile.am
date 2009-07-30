@@ -14,6 +14,7 @@ GTK_CUSTOMS =					\
 GLIB_SRCS =					\
 	$(srcdir)/GLib.Sources/Format.cs	\
 	$(srcdir)/GLib.Sources/Priority.cs	\
+	$(srcdir)/GLib.Sources/Shell.cs		\
 	$(srcdir)/GLib.Sources/Sources.cs	\
 	$(srcdir)/GLib.Sources/Timeout.cs
 
