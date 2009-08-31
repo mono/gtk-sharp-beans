@@ -42,9 +42,16 @@ gtk-api.xml: $(srcdir)/gtk-api.raw $(srcdir)/Gtk.metadata
 	chmod +w $(builddir)/gtk-api.xml
 	gapi2-fixup --api=gtk-api.xml --metadata=$(srcdir)/Gtk.metadata
 
-gtk_generated/Builder.cs: gtk-api.xml $(GTK_CUSTOMS)
+gtkbeans-api.xml: $(srcdir)/gtkbeans-api.raw $(srcdir)/GtkBeans.metadata
+	@echo -e "\n*** Massaging the raw api into $@"
+	cp $(srcdir)/gtkbeans-api.raw gtkbeans-api.xml
+	chmod +w $(builddir)/gtkbeans-api.xml
+	gapi2-fixup --api=gtkbeans-api.xml --metadata=$(srcdir)/GtkBeans.metadata
+
+gtk_generated/Builder.cs: gtk-api.xml gtkbeans-api.xml $(GTK_CUSTOMS)
 	@echo -e "\n*** Generating C# code"
-	gapi2-codegen $(GLIBSHARP_CFLAGS) --outdir=gtk_generated --customdir=$(srcdir)/Gtk.Customs --generate gtk-api.xml
+	gapi2-codegen $(GLIBSHARP_CFLAGS) --outdir=gtk_generated --customdir=$(srcdir)/Gtk.Customs --generate gtkbeans-api.xml
+	gapi2-codegen $(GLIBSHARP_CFLAGS) $(GTKSHARP_CFLAGS) $(GIOSHARP_CFLAGS) --outdir=gtk_generated --customdir=$(srcdir)/Gtk.Customs --generate gtk-api.xml
 
 gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
 	@echo -e "\n*** Building $@"

@@ -12,3 +12,4 @@ Makefile.in
 /autom4te.cache
 /gtk_generated
 /gtk-api.xml
+/gtkbeans-api.xml
