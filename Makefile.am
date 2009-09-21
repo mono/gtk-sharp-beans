@@ -6,6 +6,7 @@ GTK_SRCS =					\
 	$(srcdir)/Gtk.Sources/Dialog.cs		\
 	$(srcdir)/Gtk.Sources/Global.cs		\
 	$(srcdir)/Gtk.Sources/Image.cs		\
+	$(srcdir)/Gtk.Sources/ImageMenuItem.cs	\
 	$(srcdir)/Gtk.Sources/Widget.cs
 
 GTK_CUSTOMS =					\
@@ -55,7 +56,7 @@ gtk_generated/Builder.cs: gtk-api.xml gtkbeans-api.xml $(GTK_CUSTOMS)
 
 gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
 	@echo -e "\n*** Building $@"
-	$(CSC) -target:library -out:$@ $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(SRCS) $(srcdir)/gtk_generated/*.cs
+	$(CSC) -target:library -out:$@ $(CSC_DEFINES) $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(SRCS) $(srcdir)/gtk_generated/*.cs
 
 install-data-local: gtk-sharp-beans.dll
 	@echo -e "\n*** Installing $< into the GAC"

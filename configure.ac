@@ -24,6 +24,13 @@ PKG_CHECK_MODULES(GLIBSHARP, glib-sharp-2.0 >= 2.12)
 PKG_CHECK_MODULES(GIOSHARP, gio-sharp-2.0 >= 2.13.92)
 PKG_CHECK_MODULES(GAPI, gapi-2.0 >= 2.12.0)
 
+CSC_DEFINES=""
+if pkg-config --atleast-version=2.16 gtk+-2.0; then
+	CSC_DEFINES="$CSC_DEFINES -d:GTK_2_16"
+fi
+
+AC_SUBST(CSC_DEFINES)
+
 if test `uname -s` = "Darwin"; then
 	LIB_PREFIX=
 	LIB_SUFFIX=.dylib
