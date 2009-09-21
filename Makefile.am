@@ -7,6 +7,7 @@ GTK_SRCS =					\
 	$(srcdir)/Gtk.Sources/Global.cs		\
 	$(srcdir)/Gtk.Sources/Image.cs		\
 	$(srcdir)/Gtk.Sources/ImageMenuItem.cs	\
+	$(srcdir)/Gtk.Sources/Style.cs		\
 	$(srcdir)/Gtk.Sources/Widget.cs
 
 GTK_CUSTOMS =					\
