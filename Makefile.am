@@ -66,7 +66,7 @@ install-data-local: gtk-sharp-beans.dll
 	@echo
 
 uninstall-local:
-	@echo -e "\n*** Un-installing gio-sharp.dll from the GAC"
+	@echo -e "\n*** Un-installing gtk-sharp-beans.dll from the GAC"
 	@echo "$(GACUTIL) /u gtk-sharp-beans $(GACUTIL_FLAGS)"
 	@$(GACUTIL) /u gtk-sharp-beans $(GACUTIL_FLAGS) || exit 1;
 	@echo
@@ -82,4 +82,10 @@ CLEANFILES = 			\
 EXTRA_DIST =			\
 	$(SRCS)			\
 	$(GTK_CUSTOMS)		\
+	sources/Makefile.am \
+	sources/Makefile.in \
+	GtkBeans.metadata   \
+	gtkbeans-api.raw    \
+	Gtk.metadata        \
+	gtk-sharp-beans.snk \
 	gtk-api.raw
