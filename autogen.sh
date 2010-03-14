@@ -5,7 +5,7 @@ test -z "$srcdir" && srcdir=.
 
 PROJECT=gtk-sharp-beans
 
-autoreconf -v --force --install -I config -I m4
+autoreconf -v --force --install
 
 if test x$NOCONFIGURE = x; then
   echo Running $srcdir/configure $conf_flags "$@" ...
