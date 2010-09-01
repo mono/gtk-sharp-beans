@@ -1,8 +1,9 @@
 prefix=${pcfiledir}/../..
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
-assemblies_dir=${libdir}/mono/@PACKAGE_VERSION@
+assemblies_dir=${libdir}/gtk-sharp-beans
 gapidir=${prefix}/share/gapi-2.0
+Libraries=${assemblies_dir}/gtk-sharp-beans.dll ${assemblies_dir}/gtk-sharp-beans.dll.mdb
 
 Name: Gtk#Beans
 Description: Gtk#Beans - Blings and API missing from Gtk#

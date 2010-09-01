@@ -59,20 +59,14 @@ gtk-sharp-beans.dll: $(srcdir)/gtk_generated/Builder.cs $(SRCS)
 	@echo -e "\n*** Building $@"
 	$(CSC) -target:library -out:$@ $(CSC_DEFINES) $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(SRCS) $(srcdir)/gtk_generated/*.cs
 
-install-data-local: gtk-sharp-beans.dll
-	@echo -e "\n*** Installing $< into the GAC"
-	@echo "$(GACUTIL) /i $< /f $(GACUTIL_FLAGS)"
-	@$(GACUTIL) /i $< /f $(GACUTIL_FLAGS) || exit 1;
-	@echo
+beansdir = $(prefix)/lib/gtk-sharp-beans
+beans_DATA = gtk-sharp-beans.dll gtk-sharp-beans.dll.mdb
 
-uninstall-local:
-	@echo -e "\n*** Un-installing gtk-sharp-beans.dll from the GAC"
-	@echo "$(GACUTIL) /u gtk-sharp-beans $(GACUTIL_FLAGS)"
-	@$(GACUTIL) /u gtk-sharp-beans $(GACUTIL_FLAGS) || exit 1;
-	@echo
-
+# Ugh, annoyingly pkg-config seems to try to access gtk-sharp-2.0.pc
+# if you name this 'gtk-sharp-beans-2.0.pc' and call 
+# `pkg-config --variable=Libraries gtksharp-beans-2.0`, so rename it.
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gtk-sharp-beans-2.0.pc
+pkgconfig_DATA = gtksharp-beans-2.0.pc
 
 CLEANFILES = 			\
 	gtk-sharp-beans.dll 	\

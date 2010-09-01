@@ -21,7 +21,7 @@ AC_SUBST(GACUTIL_FLAGS)
 
 PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 >= 2.12)
 PKG_CHECK_MODULES(GLIBSHARP, glib-sharp-2.0 >= 2.12)
-PKG_CHECK_MODULES(GIOSHARP, gio-sharp-2.0 >= 2.22)
+PKG_CHECK_MODULES(GIOSHARP, gio-sharp-2.0 >= 2.18)
 PKG_CHECK_MODULES(GAPI, gapi-2.0 >= 2.12.0)
 
 CSC_DEFINES=""
@@ -43,7 +43,7 @@ AC_SUBST(LIB_SUFFIX)
 
 AC_OUTPUT(
 Makefile 
-gtk-sharp-beans-2.0.pc
+gtksharp-beans-2.0.pc
 gtk-sharp-beans.dll.config
 sources/Makefile
 )

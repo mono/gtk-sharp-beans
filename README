@@ -1,0 +1,17 @@
+gtk-sharp-beans binds some API from Gtk+ that isn't in Gtk# 2.12.x
+but is needed for full GIO and other misc support.  It exists as a stop-gap
+measure until Gtk# 3.0 is released with more complete bindings of recent API.
+
+It is not installed in the GAC because we are not ready to commit to API
+stability.  Please follow
+
+http://www.mono-project.com/Guidelines:Application_Deployment#Libraries_with_Unstable_APIs
+
+for how to use this library in your application.
+
+Website: http://github.com/mono/gtk-sharp-beans
+
+Requirements:
+* Gtk# 2.12
+* gio-sharp (http://github.com/mono/gio-sharp)
+* GAPI 2.12
