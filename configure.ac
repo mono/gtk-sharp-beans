@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(gtk-sharp-beans, 2.14.0, stephane@delcroix.org)
+AC_INIT(gtk-sharp-beans, 2.14.1, stephane@delcroix.org)
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_SRCDIR(AssemblyInfo.cs.in)
 
