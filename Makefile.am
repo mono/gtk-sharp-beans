@@ -59,7 +59,7 @@ gtk-sharp-beans.dll: $(builddir)/gtk_generated/Builder.cs $(SRCS) AssemblyInfo.c
 	$(CSC) -target:library -out:$@ $(CSC_DEFINES) $(UNSAFE) $(DEBUG) $(ASSEMBLIES) $(SRCS) AssemblyInfo.cs $(builddir)/gtk_generated/*.cs
 
 beansdir = $(prefix)/lib/gtk-sharp-beans
-beans_DATA = gtk-sharp-beans.dll gtk-sharp-beans.dll.mdb
+beans_DATA = gtk-sharp-beans.dll gtk-sharp-beans.dll.mdb gtk-sharp-beans.dll.config
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gtk-sharp-beans-2.0.pc
@@ -67,6 +67,7 @@ pkgconfig_DATA = gtk-sharp-beans-2.0.pc
 CLEANFILES = 			\
 	gtk-sharp-beans.dll 	\
 	gtk-sharp-beans.dll.mdb \
+	gtk-sharp-beans.dll.config \
 	gtk-api.xml \
 	gtkbeans-api.xml
 
