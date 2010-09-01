@@ -61,11 +61,8 @@ gtk-sharp-beans.dll: $(builddir)/gtk_generated/Builder.cs $(SRCS) AssemblyInfo.c
 beansdir = $(prefix)/lib/gtk-sharp-beans
 beans_DATA = gtk-sharp-beans.dll gtk-sharp-beans.dll.mdb
 
-# Ugh, annoyingly pkg-config seems to try to access gtk-sharp-2.0.pc
-# if you name this 'gtk-sharp-beans-2.0.pc' and call 
-# `pkg-config --variable=Libraries gtksharp-beans-2.0`, so rename it.
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gtksharp-beans-2.0.pc
+pkgconfig_DATA = gtk-sharp-beans-2.0.pc
 
 CLEANFILES = 			\
 	gtk-sharp-beans.dll 	\

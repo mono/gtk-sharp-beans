@@ -43,7 +43,7 @@ AC_SUBST(LIB_SUFFIX)
 
 AC_OUTPUT(
 Makefile 
-gtksharp-beans-2.0.pc
+gtk-sharp-beans-2.0.pc
 gtk-sharp-beans.dll.config
 AssemblyInfo.cs
 )
