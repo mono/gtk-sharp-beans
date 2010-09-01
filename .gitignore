@@ -15,3 +15,4 @@ Makefile.in
 /gtk_generated
 /gtk-api.xml
 /gtkbeans-api.xml
+AssemblyInfo.cs

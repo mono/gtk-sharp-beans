@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT(gtk-sharp-beans, 2.13.92, stephane@delcroix.org)
 AC_CONFIG_AUX_DIR(config)
-AC_CONFIG_SRCDIR(AssemblyInfo.cs)
+AC_CONFIG_SRCDIR(AssemblyInfo.cs.in)
 
 AM_INIT_AUTOMAKE
 
@@ -45,5 +45,5 @@ AC_OUTPUT(
 Makefile 
 gtksharp-beans-2.0.pc
 gtk-sharp-beans.dll.config
-sources/Makefile
+AssemblyInfo.cs
 )
