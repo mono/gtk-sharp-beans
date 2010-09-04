@@ -1,3 +1,5 @@
+SUBDIRS = sources
+
 UNSAFE = -unsafe
 DEBUG = -debug
 
@@ -63,6 +65,18 @@ beans_DATA = gtk-sharp-beans.dll gtk-sharp-beans.dll.mdb gtk-sharp-beans.dll.con
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gtk-sharp-beans-2.0.pc
+
+EXTRA_BUNDLE = $(GIOSHARP_ASSEMBLIES)
+
+install-data-hook:
+	for ASM in $(GIOSHARP_ASSEMBLIES); do \
+        $(INSTALL) -m 0755 $$ASM $(beansdir); \
+    done;
+
+uninstall-hook:
+	for ASM in $(GIOSHARP_ASSEMBLIES); do \
+        rm -f $(beansdir)/`basename $$ASM`; \
+    done;
 
 CLEANFILES = 			\
 	gtk-sharp-beans.dll 	\

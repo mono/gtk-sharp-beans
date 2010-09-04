@@ -24,6 +24,14 @@ PKG_CHECK_MODULES(GLIBSHARP, glib-sharp-2.0 >= 2.12)
 PKG_CHECK_MODULES(GIOSHARP, gio-sharp-2.0 >= 2.18)
 PKG_CHECK_MODULES(GAPI, gapi-2.0 >= 2.12.0)
 
+asms="`$PKG_CONFIG --variable=Libraries gio-sharp-2.0`"
+for asm in $asms; do
+	GIOSHARP_ASSEMBLIES="$GIOSHARP_ASSEMBLIES $asm"
+	[[ -r "$asm.mdb" ]] && GIOSHARP_ASSEMBLIES="$GIOSHARP_ASSEMBLIES $asm.mdb"
+	[[ -r "$asm.config" ]] && GIOSHARP_ASSEMBLIES="$GIOSHARP_ASSEMBLIES $asm.config"
+done
+AC_SUBST(GIOSHARP_ASSEMBLIES)
+
 CSC_DEFINES=""
 if pkg-config --atleast-version=2.16 gtk+-2.0; then
 	CSC_DEFINES="$CSC_DEFINES -d:GTK_2_16"
@@ -43,6 +51,7 @@ AC_SUBST(LIB_SUFFIX)
 
 AC_OUTPUT(
 Makefile 
+sources/Makefile
 gtk-sharp-beans-2.0.pc
 gtk-sharp-beans.dll.config
 AssemblyInfo.cs
