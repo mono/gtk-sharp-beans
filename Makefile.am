@@ -70,7 +70,7 @@ EXTRA_BUNDLE = $(GIOSHARP_ASSEMBLIES)
 
 install-data-hook:
 	for ASM in $(GIOSHARP_ASSEMBLIES); do \
-        $(INSTALL) -m 0755 $$ASM $(beansdir); \
+        $(INSTALL_DATA) $$ASM $(beansdir); \
     done;
 
 uninstall-hook:
